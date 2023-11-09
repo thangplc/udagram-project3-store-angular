@@ -1,0 +1,98 @@
+img {
+  border-radius: 10px;
+  width: 320px;
+}
+
+.detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64px;
+}
+
+.detail-item {
+  margin-left: 128px;
+  margin-right: 128px;
+}
+
+.back-link {
+  margin-top: 8px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.select-input {
+  width: 115px;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+}
+
+.btn-primary {
+  min-width: 115px;
+  padding: 6px 12px;
+
+  color: white;
+  border-radius: 6px;
+  border: 1px solid white;
+  background-color: #33b5e5;
+
+  &:hover {
+    cursor: pointer;
+    border: 1px solid blue;
+  }
+}
+img {
+  border-radius: 10px;
+  width: 400px; /* Tăng kích thước của ảnh */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Áp dụng đổ bóng */
+}
+
+.detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64px;
+}
+
+.detail-item {
+  margin-left: 128px;
+  margin-right: 128px;
+}
+
+.back-link {
+	display: inline-block;
+	color: #33b5e5; /* Màu của liên kết */
+	text-decoration: underline; /* Gạch chân cho liên kết */
+	cursor: pointer; /* Hình con trỏ khi rê chuột qua */
+	transition: color 0.3s; /* Hiệu ứng màu khi hover */
+  }
+  
+  .back-link:hover {
+	color: #007bff; /* Màu liên kết khi hover */
+  }
+  
+.link {
+  text-decoration: none;
+}
+
+.select-input {
+  width: 115px;
+  margin-bottom: 8px;
+  padding: 8px 12px; /* Tăng kích thước padding */
+}
+
+.btn-primary {
+  min-width: 115px;
+  padding: 10px 20px; /* Tăng kích thước padding */
+  color: white;
+  border-radius: 6px;
+  border: 1px solid white;
+  background-color: #33b5e5;
+
+  &:hover {
+    cursor: pointer;
+    border: 1px solid blue;
+  }
+}

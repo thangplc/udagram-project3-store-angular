@@ -1,0 +1,24 @@
+<div class="confirmation-container">
+  <div *ngIf="cart.items.length > 0" class="items">
+    <h1 class="header">{{ "Successfully !!!" }}</h1>
+    <p class="item">
+      {{ "Thank you," }} <b>{{ cart.name }}</b>
+    </p>
+
+    <p class="item">
+      {{ "Your" }} <b>${{ cart.totalAmount.toFixed(2) }} </b
+      >{{ "order is confirmed!" }}
+    </p>
+
+
+    <div class="item">
+      <a class="btn btn-primary" routerLink="/products">
+        {{ "Back to Product List" }}
+      </a>
+    </div>
+  </div>
+
+  <div *ngIf="cart.items.length == 0" class="items">
+    {{ "NOT FOUND" }}
+  </div>
+</div>

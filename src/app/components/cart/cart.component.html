@@ -1,0 +1,115 @@
+<div class="cart-index">
+  <div *ngIf="carts.items.length != 0" class="cart-container">
+    <div class="cart-panel">
+      <div class="cart-item" *ngFor="let item of carts.items">
+        <img src="{{ item.url }}" class="img" alt="Image" />
+        <div class="cart-item-details">
+          <p>
+            <b>{{ item.name }}</b>
+          </p>
+          <p>${{ item.price }}</p>
+          <p>
+            <label>{{ "Amount: " }}</label>
+            <input
+              min="0"
+              max="99"
+              type="number"
+              class="number-input"
+              [(ngModel)]="item.quantity"
+              (ngModelChange)="onChange(item.id, item.quantity)"
+            />
+          </p>
+        </div>
+      </div>
+      <p class="total-amount">
+        {{ "Total: $" }}{{ carts.totalAmount.toFixed(2) }}
+      </p>
+    </div>
+
+    <form
+      class="form-margin cart-panel"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="input-group">
+        <label for="name">{{ "Full name" }}</label>
+        <input
+          id="name"
+          type="text"
+          class="input"
+          formControlName="name"
+          placeholder="(minimum 3 characters)"
+          [(ngModel)]="guestName"
+        />
+        <div *ngIf="f['name'].touched && f['name'].invalid" class="alert">
+          <div *ngIf="f['name'].errors?.['required']">
+            {{ "Name is required" }}
+          </div>
+          <div *ngIf="f['name'].errors?.['minlength']">
+            {{ "Name must be at least 3 characters long" }}
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="address">{{ "Address" }}</label>
+        <input
+          id="address"
+          type="text"
+          class="input"
+          formControlName="address"
+          placeholder="(minimum 6 characters)"
+          [(ngModel)]="guestAddress"
+        />
+        <div *ngIf="f['address'].touched && f['address'].invalid" class="alert">
+          <div *ngIf="f['address'].errors?.['required']">
+            {{ "Address is required" }}
+          </div>
+          <div *ngIf="f['address'].errors?.['minlength']">
+            {{ "Address must be at least 4 characters long" }}.
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="cardNumber">{{ "Credit card number" }}</label>
+        <input
+          id="cardNumber"
+          type="text"
+          class="input"
+          formControlName="cardNumber"
+          placeholder="(16-digit number)"
+          [(ngModel)]="creditCardNumber"
+        />
+        <div
+          class="alert"
+          *ngIf="f['cardNumber'].touched && f['cardNumber'].invalid"
+        >
+          <div *ngIf="f['cardNumber'].errors?.['required']">
+            {{ "Credit card number is required" }}
+          </div>
+          <div *ngIf="f['cardNumber'].errors?.['pattern']">
+            {{ "Credit card number must be 16-digit number" }}
+          </div>
+        </div>
+      </div>
+
+      <p class="note">
+        {{ "We'll never share your payment details with anyone else" }}
+      </p>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+        {{ "Submit" }}
+      </button>
+    </form>
+
+    <div></div>
+  </div>
+
+  <div *ngIf="carts.items.length == 0" class="empty-cart-message">
+    <p>{{ "Cart is empty" }}</p>
+    <a class="btn btn-primary" routerLink="/products">
+      {{ "Back to product list" }}
+    </a>
+  </div>
+</div>
